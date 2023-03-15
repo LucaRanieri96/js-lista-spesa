@@ -29,3 +29,14 @@ while (i < shoppingList.length) {
   // incremento del ciclo
   i++;
 }
+
+const form = document.querySelector("form");
+const input = document.getElementById("new_item");
+
+form.addEventListener("submit", function () {
+  // Aggiungi l'elemento inserito dall'utente all'array
+  shoppingList.push(input.value);
+  // Aggiungi l'elemento alla pagina
+  listItems.innerHTML += "<li>" + input.value + "</li>";
+  
+});
