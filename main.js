@@ -18,6 +18,7 @@ const shoppingList = [
   "patatine",
 ];
 
+
 // ciclo while
 const listItems = document.getElementById("shopping_list");
 // variabile del ciclo
@@ -33,10 +34,12 @@ while (i < shoppingList.length) {
 const form = document.querySelector("form");
 const input = document.getElementById("new_item");
 
-form.addEventListener("submit", function () {
+input.addEventListener("submit", function () {
   // Aggiungi l'elemento inserito dall'utente all'array
   shoppingList.push(input.value);
   // Aggiungi l'elemento alla pagina
   listItems.innerHTML += "<li>" + input.value + "</li>";
   
 });
+
+console.log(shoppingList)
