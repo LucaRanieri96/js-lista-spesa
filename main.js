@@ -34,7 +34,9 @@ while (i < shoppingList.length) {
 const form = document.querySelector("form");
 const input = document.getElementById("new_item");
 
-input.addEventListener("submit", function () {
+form.addEventListener("submit", function (e) {
+
+  e.preventDefault()
   // Aggiungi l'elemento inserito dall'utente all'array
   shoppingList.push(input.value);
   // Aggiungi l'elemento alla pagina
