@@ -18,7 +18,6 @@ const shoppingList = [
   "patatine",
 ];
 
-
 // ciclo while
 const listItems = document.getElementById("shopping_list");
 // variabile del ciclo
@@ -35,13 +34,27 @@ const form = document.querySelector("form");
 const input = document.getElementById("new_item");
 
 form.addEventListener("submit", function (e) {
+  // annullare comportamento di refresh del form
+  e.preventDefault();
 
-  e.preventDefault()
-  // Aggiungi l'elemento inserito dall'utente all'array
-  shoppingList.push(input.value);
-  // Aggiungi l'elemento alla pagina
-  listItems.innerHTML += "<li>" + input.value + "</li>";
-  
+  const action = e.submitter.value; // valore del pulsante cliccato
+
+  const item = input.value;
+
+  if (action === "add") {
+    shoppingList.push(item);
+    listItems.innerHTML += "<li>" + item + "</li>";
+  } else if (action === "remove") {
+    // definisco una variabile per trovare l'index degli elementi nell'array
+    const index = shoppingList.indexOf(item);
+
+    if (index !== -1) { 
+      shoppingList.splice(index, 1);
+      listItems.children[index].remove();
+    }
+  }
+
+  input.value = "";
 });
 
-console.log(shoppingList)
+console.log(shoppingList);
