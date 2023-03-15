@@ -49,11 +49,11 @@ form.addEventListener("submit", function (e) {
     const index = shoppingList.indexOf(item);
 
     if (index !== -1) { 
-      shoppingList.splice(index, 1);
-      listItems.children[index].remove();
+      shoppingList.splice(index, 1); // rimuovere un singolo elemento a partire dall'index che trovo una volta messa la parola nell'input
+      listItems.children[index].remove(); // qui rimuovo il figlio dell'index corrispondente alla parola che ho trovato
     }
   }
-
+  // resetto il valore dell'input
   input.value = "";
 });
 
